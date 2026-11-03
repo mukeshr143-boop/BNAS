@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6f8">
+    <title>Outdoor Media Management System</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="login-screen" id="login-screen" aria-labelledby="auth-title">
+      <section class="login-card">
+        <div class="login-brand">
+          <span class="brand-mark">OM</span>
+          <div class="brand-copy">
+            <strong>OUTDOOR MEDIA</strong>
+            <small>Management System</small>
+          </div>
+        </div>
+        <p class="eyebrow">SECURE WORKSPACE ACCESS</p>
+        <h1 id="auth-title">Sign in</h1>
+        <p class="login-description" id="auth-description">Enter your tenant slug, email, and password to continue.</p>
+        <form id="auth-form">
+          <div id="auth-company-field" hidden>
+            <label for="auth-company-name">Organization name</label>
+            <input id="auth-company-name" name="companyName" autocomplete="organization" maxlength="80">
+          </div>
+          <div id="auth-tenant-field">
+            <label for="auth-tenant-slug">Tenant slug</label>
+            <input id="auth-tenant-slug" name="tenantSlug" autocomplete="off" maxlength="40" placeholder="demo-media">
+          </div>
+          <label for="auth-user-id">Email address</label>
+          <input id="auth-user-id" name="email" type="email" autocomplete="username" maxlength="254" required>
+          <label for="auth-password">Password</label>
+          <input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+          <small class="password-help" id="auth-password-help" hidden>Use at least 12 characters.</small>
+          <div id="auth-confirm-field" hidden>
+            <label for="auth-password-confirm">Confirm password</label>
+            <input id="auth-password-confirm" name="passwordConfirm" type="password" autocomplete="new-password">
+          </div>
+          <p class="auth-message" id="auth-message" role="alert" hidden></p>
+          <button class="button button-primary login-submit" id="auth-submit" type="submit" disabled>Sign in</button>
+        </form>
+        <button class="text-button auth-mode-toggle" id="auth-mode-toggle" type="button">Create a new workspace</button>
+        <p class="login-security-note">Sessions are securely managed. Operational records currently remain in this browser.</p>
+      </section>
+    </main>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Outdoor Media home">
+          <span class="brand-mark">OM</span>
+          <span class="brand-copy">
+            <strong>OUTDOOR MEDIA</strong>
+            <small>Management System</small>
+          </span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">▦</span><span>Dashboard</span>
+          </button>
+          <div class="nav-group expanded" data-group="inventory">
+            <button class="nav-group-toggle" aria-expanded="true">
+              <span class="nav-icon">▤</span><span>Inventory</span><span class="nav-count" data-inventory-count>8</span><span class="group-chevron">⌄</span>
+            </button>
+            <div class="nav-children">
+              <button class="nav-item" data-page="inventory-home">Inventory dashboard</button>
+              <button class="nav-item nav-child" data-page="inventory-total"><span>Total Inventory</span><span class="nav-count" data-total-inventory-count>0</span></button>
+              <button class="nav-item" data-page="inventory-sites">All inventory</button>
+              <button class="nav-item nav-child" data-page="inventory-bans"><span>BANS</span><span class="nav-count category-count" data-category-count="BANS">0</span></button>
+              <button class="nav-item nav-child" data-page="inventory-best"><span>BEST</span><span class="nav-count category-count" data-category-count="BEST">0</span></button>
+              <button class="nav-item nav-child" data-page="inventory-hired"><span>Hired inventory</span><span class="nav-count category-count" data-category-count="Hired Inventory">0</span></button>
+              <button class="nav-item" data-page="inventory-zone">Zone-wise</button>
+              <button class="nav-item" data-page="inventory-town">Town-wise</button>
+              <button class="nav-item" data-page="inventory-state">State-wise</button>
+            </div>
+          </div>
+          <div class="nav-group" data-group="marketing">
+            <button class="nav-group-toggle" aria-expanded="false">
+              <span class="nav-icon">▣</span><span>Marketing</span><span class="nav-count alert-count">12</span><span class="group-chevron">⌄</span>
+            </button>
+            <div class="nav-children">
+              <button class="nav-item" data-page="marketing-home">Marketing dashboard</button>
+              <button class="nav-item" data-page="bookings">Bookings</button>
+              <button class="nav-item" data-page="marketing-proposals">Make proposal</button>
+              <button class="nav-item" data-page="marketing-presentations">PPT presentations</button>
+              <button class="nav-item" data-page="marketing-po">Issue purchase order</button>
+            </div>
+          </div>
+          <div class="nav-group" data-group="operations">
+            <button class="nav-group-toggle" aria-expanded="false">
+              <span class="nav-icon">◷</span><span>Operations</span><span class="group-chevron">⌄</span>
+            </button>
+            <div class="nav-children">
+              <button class="nav-item" data-page="operations-home">Operations dashboard</button>
+              <button class="nav-item" data-page="flex-mounting">Flex mounting</button>
+              <button class="nav-item" data-page="hoarding-erection">Hoarding erection</button>
+              <button class="nav-item" data-page="landlord-details">Landlord Details</button>
+              <button class="nav-item" data-page="landlord-payments">Landlord Payments</button>
+              <button class="nav-item" data-page="budget-preparation">Budget Preparation</button>
+              <button class="nav-item" data-page="operations-po">Issue purchase order</button>
+            </div>
+          </div>
+          <div class="nav-group" data-group="finance">
+            <button class="nav-group-toggle" aria-expanded="false">
+              <span class="nav-icon">₹</span><span>Finance</span><span class="group-chevron">⌄</span>
+            </button>
+            <div class="nav-children">
+              <button class="nav-item" data-page="finance-home">Finance dashboard</button>
+              <button class="nav-item" data-page="billing">Billing</button>
+              <button class="nav-item" data-page="expenses">Inventory expenses</button>
+              <button class="nav-item" data-page="receipts">Receipts</button>
+            </div>
+          </div>
+          <div class="nav-group" data-group="management">
+            <button class="nav-group-toggle" aria-expanded="false">
+              <span class="nav-icon">▥</span><span>Management MIS</span><span class="group-chevron">⌄</span>
+            </button>
+            <div class="nav-children">
+              <button class="nav-item" data-page="management">MIS dashboard</button>
+              <button class="nav-item" data-page="important-documents">Important Documents</button>
+            </div>
+          </div>
+        </nav>
+
+        <div class="workspace-label master-label">SETUP</div>
+        <nav class="primary-nav" aria-label="Setup navigation">
+          <button class="nav-item" data-page="masters">
+            <span class="nav-icon">◉</span><span>Master records</span>
+          </button>
+          <button class="nav-item nav-child" data-page="bank-master">
+            <span class="nav-icon">₹</span><span>Bank Master</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-help">
+          <span class="help-icon">?</span>
+          <div><strong>Need a hand?</strong><small>View system guide</small></div>
+          <span class="help-arrow">↗</span>
+        </div>
+        <div class="sidebar-user">
+          <div class="avatar avatar-dark" id="sidebar-avatar">SA</div>
+          <div class="user-copy"><strong id="sidebar-user-name">Administrator</strong><small id="sidebar-user-role">Signed in</small></div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button>
+          <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumb-current">Dashboard</strong></div>
+          <div class="topbar-actions">
+            <span class="sample-label"><span></span> Sample data</span>
+            <button class="icon-button notification-button" aria-label="Notifications">♧<i></i></button>
+            <button class="logout-button" id="logout-button" type="button">Sign out</button>
+            <div class="avatar avatar-light" id="topbar-avatar">SA</div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow" id="page-eyebrow">OVERVIEW</p>
+              <h1 id="page-title">Good morning, Admin <span class="wave">✦</span></h1>
+              <p class="page-subtitle" id="page-subtitle">Here’s what’s happening across your outdoor media inventory.</p>
+            </div>
+            <div class="heading-actions">
+              <label class="date-control">
+                <span class="calendar-icon">▦</span>
+                <span class="date-label">01 Apr 2025 – 12 Oct 2025</span>
+                <span class="select-chevron">⌄</span>
+              </label>
+              <button class="button button-primary" id="primary-action"><span>＋</span> New booking</button>
+            </div>
+          </section>
+
+          <div id="dashboard-view">
+          <section class="panel" aria-label="SaaS workspace summary">
+            <div class="panel-heading">
+              <div><h2>Workspace summary</h2><p>Current tenant and access data</p></div>
+            </div>
+            <div class="tenant-summary-grid">
+              <div><span class="metric-label">Organization</span><strong id="workspace-name">-</strong></div>
+              <div><span class="metric-label">Tenant slug</span><strong id="workspace-slug">-</strong></div>
+              <div><span class="metric-label">Plan</span><strong id="workspace-plan">-</strong></div>
+              <div><span class="metric-label">Users</span><strong id="workspace-users">-</strong></div>
+            </div>
+          </section>
+          <section class="metric-grid" aria-label="Inventory and financial summary">
+            <article class="metric-card">
+              <div class="metric-top"><span class="metric-label">Total inventory</span><span class="metric-icon icon-violet">▤</span></div>
+              <div class="metric-value"><span id="overview-total-inventory">0</span> <span class="metric-unit">sites</span></div>
+              <div class="metric-foot"><span class="metric-note" id="overview-zone-count">Across 0 zones</span><span class="metric-link" data-link="inventory-sites">View inventory <b>↗</b></span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span class="metric-label">Average booking</span><span class="metric-icon icon-blue">▣</span></div>
+              <div class="metric-value"><span id="overview-average-booking">0</span><span class="metric-unit">%</span></div>
+              <div class="metric-foot"><span class="metric-note">Across all inventory sites</span></div>
+              <div class="mini-progress"><span id="overview-booking-progress" style="width:0%"></span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span class="metric-label">Booking revenue</span><span class="metric-icon icon-green">₹</span></div>
+              <div class="metric-value"><span class="currency">₹</span> <span id="overview-revenue">0</span><span class="metric-unit">L</span></div>
+              <div class="metric-foot"><span class="trend-positive">↗ 12.6%</span><span class="metric-note">vs. previous period</span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span class="metric-label">Inventory profit / loss</span><span class="metric-icon icon-amber">⌁</span></div>
+              <div class="metric-value"><span class="currency">₹</span> <span id="overview-profit">0</span><span class="metric-unit">L</span></div>
+              <div class="metric-foot"><span class="trend-positive">↗ 6.2%</span><span class="metric-note">Net profit · selected period</span></div>
+            </article>
+          </section>
+
+          <section class="overview-grid">
+            <article class="panel zone-panel">
+              <div class="panel-heading">
+                <div><h2>Booking by zone</h2><p>Inventory booking percentage by zone</p></div>
+                <button class="text-button" data-link="inventory-zone">View zones <span>→</span></button>
+              </div>
+              <div class="zone-legend"><span><i class="legend-booked"></i>Booked</span><span><i class="legend-available"></i>Available</span></div>
+              <div class="zone-chart" id="zone-chart" aria-label="Booking percentage for each zone"></div>
+            </article>
+
+            <article class="panel financial-panel">
+              <div class="panel-heading">
+                <div><h2>Revenue &amp; expenses</h2><p>Inventory financial performance</p></div>
+                <button class="period-button">This period <span>⌄</span></button>
+              </div>
+              <div class="financial-summary">
+                <div><span class="summary-dot revenue-dot"></span><span>Revenue</span><strong id="chart-revenue">₹0</strong></div>
+                <div><span class="summary-dot expense-dot"></span><span>Expenses</span><strong id="chart-expenses">₹0</strong></div>
+              </div>
+              <div class="bar-chart" aria-label="Monthly revenue and expenses chart">
+                <div class="chart-y-labels"><span>₹12L</span><span>₹8L</span><span>₹4L</span><span>₹0</span></div>
+                <div class="chart-plot">
+                  <div class="chart-gridline line-one"></div><div class="chart-gridline line-two"></div><div class="chart-gridline line-three"></div>
+                  <div class="month-bars"><div class="bar-pair"><i class="bar revenue-bar" style="height:46%"></i><i class="bar expense-bar" style="height:29%"></i></div><div class="bar-pair"><i class="bar revenue-bar" style="height:63%"></i><i class="bar expense-bar" style="height:42%"></i></div><div class="bar-pair"><i class="bar revenue-bar" style="height:53%"></i><i class="bar expense-bar" style="height:37%"></i></div><div class="bar-pair"><i class="bar revenue-bar" style="height:77%"></i><i class="bar expense-bar" style="height:51%"></i></div><div class="bar-pair"><i class="bar revenue-bar" style="height:68%"></i><i class="bar expense-bar" style="height:48%"></i></div><div class="bar-pair"><i class="bar revenue-bar" style="height:91%"></i><i class="bar expense-bar" style="height:60%"></i></div></div>
+                  <div class="chart-months"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
+                </div>
+              </div>
+              <div class="financial-foot"><span>Net inventory profit</span><strong id="chart-profit">₹0</strong></div>
+            </article>
+          </section>
+
+          <section class="lower-grid">
+            <article class="panel inventory-panel">
+              <div class="panel-heading inventory-heading">
+                <div><h2>Inventory performance</h2><p>Booking and profit / loss by media site</p></div>
+                <div class="table-actions">
+                  <label class="search-box"><span>⌕</span><input id="inventory-search" type="search" placeholder="Search inventory" aria-label="Search inventory"></label>
+                  <label class="sr-only" for="zone-filter">Filter inventory by zone</label>
+                  <select class="filter-select" id="zone-filter">
+                    <option value="All">Zone: All</option>
+                    <option value="Central">Zone: Central</option>
+                    <option value="North">Zone: North</option>
+                    <option value="South">Zone: South</option>
+                    <option value="East">Zone: East</option>
+                    <option value="West">Zone: West</option>
+                    <option value="Outer">Zone: Outer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>INVENTORY</th><th>ZONE</th><th>BOOKING</th><th>REVENUE</th><th>EXPENSES</th><th>PROFIT / LOSS</th><th>PHOTOS</th></tr></thead>
+                  <tbody id="inventory-rows"></tbody>
+                </table>
+              </div>
+              <div class="table-footer"><span id="table-count">Showing 5 of 8 inventory sites</span><button class="text-button" data-link="inventory-sites">View all inventory <span>→</span></button></div>
+            </article>
+
+            <article class="panel activity-panel">
+              <div class="panel-heading"><div><h2>Department activity</h2><p>Latest workflow updates</p></div><button class="more-button subtle-more" aria-label="More activity options">···</button></div>
+              <div class="activity-list">
+                <div class="activity-item"><div class="activity-avatar marketing-avatar">M</div><div class="activity-copy"><strong>New booking created</strong><p>Lake View Road · OOH-1042</p><small>Marketing <span>·</span> 10:42 AM</small></div><span class="activity-status status-booked">Booked</span></div>
+                <div class="activity-item"><div class="activity-avatar ops-avatar">O</div><div class="activity-copy"><strong>Installation completed</strong><p>MG Road Junction · OOH-0881</p><small>Operations <span>·</span> 09:18 AM</small></div><span class="activity-status status-done">Done</span></div>
+                <div class="activity-item"><div class="activity-avatar finance-avatar">F</div><div class="activity-copy"><strong>Invoice submitted</strong><p>North Star Retail · INV-0258</p><small>Finance <span>·</span> Yesterday</small></div><span class="activity-status status-review">Review</span></div>
+              </div>
+              <button class="activity-link" data-link="operations">View all activity <span>→</span></button>
+            </article>
+          </section>
+
+          <footer class="page-footer"><span>Outdoor Media Management System</span><span>All departments · Inventory-first workflow</span></footer>
+          </div>
+          <section id="module-view" class="module-view" hidden></section>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
